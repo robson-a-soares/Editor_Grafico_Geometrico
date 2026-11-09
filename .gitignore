@@ -1,0 +1,22 @@
+# Ambiente virtual (cada pessoa cria o seu com setup.bat / setup.sh)
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Executável (PyInstaller) e testes
+build/
+dist/
+autoteste/
+*.log
+
+# Editores e sistema
+.idea/
+.vscode/
+*.geo.tmp
+Thumbs.db
+desktop.ini
+.DS_Store

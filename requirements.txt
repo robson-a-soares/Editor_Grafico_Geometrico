@@ -1,0 +1,8 @@
+# Dependências do Editor Gráfico Geométrico — versões fixas e testadas.
+# Python suportado: 3.10 a 3.14 (recomendado: 3.12, a versão usada pelo grupo).
+# Instalar dentro do ambiente virtual (.venv) com setup.bat / setup.sh.
+PySide6-Essentials==6.11.3
+PyOpenGL==3.1.10
+numpy==2.2.6 ; python_version < "3.11"
+numpy==2.4.6 ; python_version >= "3.11"
+Pillow==11.3.0

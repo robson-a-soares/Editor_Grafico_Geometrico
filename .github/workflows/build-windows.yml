@@ -1,0 +1,60 @@
+# Cria e testa o executável Windows em cada push.
+# O .exe fica em: GitHub → separador "Actions" → execução mais recente → "Artifacts".
+# Ao criar uma tag v* (ex.: git tag v1.0 && git push --tags) o .exe é publicado numa Release.
+name: Executável Windows
+
+on:
+  push:
+    branches: [main, "feat/**"]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements*.txt
+
+      - name: Instalar dependências
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+
+      - name: Testes do núcleo
+        run: python -m unittest discover -s tests -v
+
+      - name: Criar o executável
+        run: pyinstaller --noconfirm --clean EditorGeometrico.spec
+
+      - name: Autoteste do executável (OpenGL por software)
+        shell: pwsh
+        run: |
+          $p = Start-Process -FilePath "dist\EditorGeometrico.exe" -ArgumentList "--selftest","dist\autoteste","--software-gl" -Wait -PassThru
+          Get-Content "dist\autoteste\autoteste.txt"
+          if ($p.ExitCode -ne 0) { exit 1 }
+
+      - name: Guardar o executável
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: EditorGeometrico-windows
+          path: |
+            dist/EditorGeometrico.exe
+            dist/autoteste/
+          if-no-files-found: warn
+
+      - name: Publicar Release (tags v*)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/EditorGeometrico.exe

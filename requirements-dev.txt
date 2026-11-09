@@ -1,0 +1,3 @@
+# Ferramentas para criar o executável (.exe). Não são precisas para usar o editor.
+-r requirements.txt
+pyinstaller==6.22.3
