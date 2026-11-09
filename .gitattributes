@@ -1,0 +1,7 @@
+* text=auto
+# os scripts do Windows precisam de CRLF; os do Linux/macOS de LF
+*.bat text eol=crlf
+*.sh text eol=lf
+*.png binary
+*.ico binary
+*.gif binary
