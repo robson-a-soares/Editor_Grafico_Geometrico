@@ -116,3 +116,25 @@ Relatório técnico em PDF (13 secções) · código-fonte · ficheiro `.zip` ·
 
 Para o ZIP do código: `git archive -o Grupo5_EditorGeometrico.zip HEAD` (inclui só o que está no
 Git — sem `.venv`, `build` nem `dist`).
+
+
+# Comandos Uteis
+O PowerShell (que é o terminal do VS Code) só corre scripts da pasta atual se tiverem .\ à frente. Basta escrever:
+
+Rodar no powershell:
+.\setup.bat
+
+Só precisas de fazer isto uma vez. Na primeira vez demora uns minutos, porque descarrega cerca de 100 MB de bibliotecas para a pasta .venv. No fim corre o autoteste e deve aparecer “Pronto!”.
+
+## 1) Mais simples: usar diretamente o Python do ambiente
+.\.venv\Scripts\python.exe main.py
+
+## 2) Ou ativar o ambiente (aparece "(.venv)" no início da linha) e usar "python" normalmente
+.\.venv\Scripts\Activate.ps1
+python main.py
+
+## Comandos úteis (com o ambiente ativado):
+python main.py                                 # abrir o editor
+python main.py --software-gl                   # se a janela ficar preta ou der erro de OpenGL
+python -m unittest discover -s tests -v        # testes do núcleo
+python main.py --selftest autoteste            # autoteste: gera imagens e um GIF em autoteste\
