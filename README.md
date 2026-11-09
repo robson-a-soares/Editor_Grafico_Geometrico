@@ -88,7 +88,7 @@ editor/
   controller.py         estado da aplicação e comandos (liga o modelo à interface)
   selftest.py           autoteste sem janelas
 tests/                  testes do núcleo (python -m unittest)
-docs/                   decisões técnicas e arquitetura (base do relatório)
+docs/                   manual do utilizador (.docx), decisões técnicas e arquitetura
 ```
 
 ## 4. Criar o executável
@@ -113,6 +113,10 @@ docs/                   decisões técnicas e arquitetura (base do relatório)
 
 Prazo: **10/11/2026 até às 23h30**, por email ao docente.
 Relatório técnico em PDF (13 secções) · código-fonte · ficheiro `.zip` · vídeo de 3 a 5 minutos.
+
+- **Manual do utilizador:** `docs/Manual_do_Utilizador.docx` (Word; em *Ficheiro → Guardar como* dá PDF).
+- **Vídeo de demonstração:** `entrega/Video_Demonstracao_Editor_Geometrico.mp4` (3 min 17 s, sem som, com
+  legendas). Fica fora do Git por ser grande: partilhe-o por link, como o `.exe`.
 
 Para o ZIP do código: `git archive -o Grupo5_EditorGeometrico.zip HEAD` (inclui só o que está no
 Git — sem `.venv`, `build` nem `dist`).

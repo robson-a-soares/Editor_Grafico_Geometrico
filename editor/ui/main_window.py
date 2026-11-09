@@ -299,12 +299,12 @@ class MainWindow(QMainWindow):
         for d in (self.dock_layers, self.dock_props):
             d.setFeatures(QDockWidget.DockWidgetFeature.DockWidgetMovable
                           | QDockWidget.DockWidgetFeature.DockWidgetClosable)
-            d.setMinimumWidth(300)
+            d.setMinimumWidth(370)
         self.addDockWidget(Qt.DockWidgetArea.RightDockWidgetArea, self.dock_layers)
         self.addDockWidget(Qt.DockWidgetArea.RightDockWidgetArea, self.dock_props)
         self.splitDockWidget(self.dock_layers, self.dock_props, Qt.Orientation.Vertical)
         self.resizeDocks([self.dock_layers, self.dock_props], [300, 520], Qt.Orientation.Vertical)
-        self.resizeDocks([self.dock_layers], [330], Qt.Orientation.Horizontal)
+        self.resizeDocks([self.dock_layers], [380], Qt.Orientation.Horizontal)
         self.view_menu.addSeparator()
         self.view_menu.addAction(self.dock_layers.toggleViewAction())
         self.view_menu.addAction(self.dock_props.toggleViewAction())

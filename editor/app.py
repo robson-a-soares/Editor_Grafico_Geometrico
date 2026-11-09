@@ -147,6 +147,7 @@ def main(argv=None) -> int:
     _surface_format(software)
     from PySide6.QtWidgets import QApplication, QMessageBox
 
+    from .ui.i18n import install_translations
     from .ui.icons import icon
     from .ui.main_window import MainWindow
     from .ui.theme import apply_theme
@@ -155,6 +156,7 @@ def main(argv=None) -> int:
     app.setApplicationName(APP_NAME)
     app.setApplicationVersion(__version__)
     app.setOrganizationName(ORG_NAME)
+    install_translations(app)
     apply_theme(app)
     app.setWindowIcon(icon("logo"))
     _install_excepthook()
