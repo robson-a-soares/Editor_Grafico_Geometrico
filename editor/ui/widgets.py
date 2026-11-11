@@ -125,7 +125,7 @@ def dspin(lo: float, hi: float, step: float = 1.0, decimals: int = 1, suffix: st
     w.setSuffix(suffix)
     w.setKeyboardTracking(False)
     w.setAccelerated(True)
-    w.setMinimumWidth(70)
+    w.setMinimumWidth(58)
     return w
 
 

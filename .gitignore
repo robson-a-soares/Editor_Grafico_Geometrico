@@ -20,3 +20,6 @@ autoteste/
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# vídeo e outros ficheiros grandes da entrega (partilhados por link)
+entrega/
